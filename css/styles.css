@@ -102,10 +102,6 @@ address {
     padding-right: 0;
 }
 
-.navbar-list-item {
-    /* display: flex; */
-}
-
 .navbar-item-link {
     position: relative;
     display: flex;
