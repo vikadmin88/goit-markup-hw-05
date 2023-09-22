@@ -571,45 +571,40 @@ address {
 
 }
 
-.subscribe-form-block {
+.subscribe-form {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 24px;
-
-}
-.subscribe-form .input-field {
-    min-width: 264px;
 }
 
 .subscribe-form .input-email {
-    width: 100%;
+    width: 264px;
     height: 40px;
     border-radius: 4px;
     color: var(--cb-main);
     border: 1px solid var(--cb-main);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    background-color: var(--c-main);
-    padding: 8px 16px;
-}
-.subscribe-form .input-email::placeholder {
-    color: var(--cb-main);
+    filter: drop-shadow(0px 4px 4px 0px rgba(0, 0, 0, 0.15));
     font-size: 12px;
     line-height: 2.0;
     letter-spacing: 0.04em;
+    background-color: transparent;
+    padding-left: 16px;
 }
-
-.subscribe-form .action-element {
-    width: 100%;
+.subscribe-form .input-email::placeholder {
+    color: var(--cb-main);
 }
 
 .subscribe-form .subscribe-button {
     display: flex;   
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    /* gap: 16px; */
     color: var(--cb-main);
+    min-width: 165px;
+    height: 40px;
     
+    font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
@@ -619,10 +614,11 @@ address {
     background: var(--c-logo);
     cursor: pointer;
     border: none;
-    min-width: 165px;
-    height: 40px;
-    padding: 8px 24px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-form .subscribe-icon {
+    margin-left: 16px;
 }
 .subscribe-form .subscribe-button:hover,
 .subscribe-form .subscribe-button:focus {
@@ -640,15 +636,16 @@ address {
 .backdrop {
     position: fixed;
     inset: 0;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     background-color: rgba(46, 47, 66, 0.40);
-    padding: 20px;
+    /* padding: 20px; */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-open {
@@ -662,16 +659,21 @@ address {
 }
 
 .modal {
-    position: relative;
-    width: 100%;
-    max-width: 408px;
-    overflow-y: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 408px;
+    min-height: 584px;
+    /* overflow-y: auto; */
     background-color: var(--cb-modal);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 
+        0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     padding: 72px 24px 24px;
-    transform: scale(0);
-    transition: transform 250ms ease-in-out;
-}
+    transform: translate(-50%, -50%) scale(1);
+    /* transform: scale(1); */
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+}    
 
 .modal-close-button {
     position: absolute;
@@ -688,7 +690,8 @@ address {
     border: 1px solid rgba(0, 0, 0, 0.10);
     border-radius: 50%;
     padding: 0;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-button .close-icon {
@@ -738,14 +741,15 @@ address {
     display: block;
     color: var(--c-modal-label);
     font-size: 12px;
-    line-height: 1.16;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     margin-bottom: 4px;
 }
 .input-text {
     border-radius: 4px;
     border: 1px solid rgba(46, 47, 66, 0.40);
-    outline: none;
+    background-color: transparent;
+    outline: transparent;
     width: 100%;
     height: 40px;
     padding: 8px 16px 8px 38px;
@@ -757,6 +761,10 @@ address {
     border-color: var(--c-logo);
 }
 
+.input-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .fieldblock-textarea {
     width: 100%;
     margin-bottom: 16px;
@@ -766,9 +774,14 @@ address {
     width: 100%;
     min-height: 120px;
     border-radius: 4px;
+    color: rgba(46, 47, 66, 0.40);
+    background-color: transparent;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
     border: 1px solid rgba(46, 47, 66, 0.40);
     resize: none;
-    outline: none;
+    outline: transparent;
     padding: 8px 16px;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -787,10 +800,6 @@ address {
     margin-bottom: 24px;
 }
 
-.input-checkbox {
-    /* outline: none; */
-}
-
 .policy-label {
     display: flex;
     justify-content: center;
@@ -798,16 +807,21 @@ address {
     gap: 8px;
     color: var(--c-modal-label);
     font-size: 12px;
-    line-height: 1.16;
+    line-height: 1.17;
     letter-spacing: 0.04em;
 }
 
 .checkbox-span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    fill: transparent;
     width: 16px;
     height: 16px;
     border-radius: 2px;
     border: 1px solid rgba(46, 47, 66, 0.40);
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .checkbox-icon {
     opacity: 0;
@@ -817,6 +831,8 @@ address {
     border-color: var(--c-logo);
 }
 .input-checkbox:checked + .policy-label .checkbox-span {
+    background-color: var(--c-hover-menu);
+    fill: var(--cb-team);
     border: none;
 }
 .input-checkbox:checked + .policy-label .checkbox-icon {
@@ -831,12 +847,12 @@ address {
     text-decoration-line: underline;
 }
 
-.fieldblock-action {
-    width: 100%;
-}
 .form-button {
     display: block;
+    min-width: 169px;
+    height: 56px;
     margin: 0 auto;
+    font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
@@ -850,10 +866,8 @@ address {
     border: none;
     outline: none;
     text-align: center;
-    min-width: 169px;
-    height: 56px;
     padding: 16px 32px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 .form-button:hover,
 .form-button:focus {
