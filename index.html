@@ -398,10 +398,8 @@
         <div class="footer-form-wrapper">
           <p class="subscribe-title">Subscribe</p>
           <form action="#" name="subscribe-form" class="subscribe-form">
-            <div class="input-field">
-              <label for="subscribe-email" class="visually-hidden">Subscribe</label>
-              <input class="input-email" type="email" name="subscribe-email" id="subscribe-email" placeholder="E-mail">
-            </div>
+            <label for="subscribe-email" class="visually-hidden">Subscribe</label>
+            <input class="input-email" type="email" name="subscribe-email" id="subscribe-email" placeholder="E-mail">
             <button class="subscribe-button" type="submit" value="submit">Subscribe
               <svg class="subscribe-icon" width="24" height="24">
                 <use href="./images/icons.svg#subscribe"></use>
@@ -412,7 +410,7 @@
       </div>
     </footer>
 
-<div class="backdrop">
+<div class="backdrop is-open">
   <div class="modal">
     <button class="modal-close-button" type="button">
       <svg class="close-icon" width="8" height="8">
@@ -421,7 +419,8 @@
     </button>
     <p class="modal-title">Leave your contacts and we will call you back</p>
     <form action="#" name="contact-form" class="contact-form">
-      <label class="input-label" for="user-name">Name</label>
+      <div class="fieldblock-input">
+        <label class="input-label" for="user-name">Name</label>
         <div class="input-icon-wrap">
           <input class="input-text" type="text" name="user-name" id="user-name" autofocus>
           <svg class="input-icon" width="18" height="24">

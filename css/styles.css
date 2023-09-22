@@ -586,7 +586,7 @@ address {
     border: 1px solid var(--cb-main);
     filter: drop-shadow(0px 4px 4px 0px rgba(0, 0, 0, 0.15));
     font-size: 12px;
-    line-height: 2.0;
+    line-height: 1.5;
     letter-spacing: 0.04em;
     background-color: transparent;
     padding-left: 16px;
